@@ -3,14 +3,15 @@
 // 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
 // 6, 1, 33 -> [6, 1, 33]
 
-int[] array = new int[8];
-var rand = new Random();
-for (int i = 0; i < array.Length; i++)
+int[] generate8Array()
 {
-    array[i] = rand.Next(1, 100);
+    int[] array = new int[8];
+    for (int i = 0; i < array.Length; i++)
+    {
+        array[i] = new Random().Next(1, 100);
+    }
+    return array;
 }
-string result = String.Join(',', array);
 
-Console.WriteLine($"[{result}]");
+Console.WriteLine($"[{String.Join(", ", generate8Array())}]");
 
-Math.Pow(1, 2);
