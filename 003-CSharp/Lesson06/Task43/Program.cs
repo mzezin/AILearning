@@ -13,9 +13,9 @@ double[]? intersectionPoint(int b1, int k1, int b2, int k2)
     return new double[2] { x, y };
 }
 
-double[]? r = intersectionPoint(2, 5, 4, 9);
-double[]? r = intersectionPoint(0, 1, 1, 0);
-double[]? r = intersectionPoint(1, 1, 1, 1);
+double[]? r = intersectionPoint(0, 2, 1, 5);
+// double[]? r = intersectionPoint(0, 1, 1, 0);
+// double[]? r = intersectionPoint(1, 1, 1, 1);
 
 if (r != null)
     Console.WriteLine($"Точка пересечения прямых: ({r[0]}; {r[1]})");
@@ -25,8 +25,8 @@ else
 //==================================================================
 // развлечения с классами
 
-Line lineA = new Line(2, 5);
-Line lineB = new Line(4, 9);
+Line lineA = new Line(202, 89);
+Line lineB = new Line(99, 8);
 Point? p = lineA.FindIntersection(lineB);
 
 if (p != null)
