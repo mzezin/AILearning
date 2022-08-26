@@ -56,18 +56,18 @@ void FillImage(int row, int col)
 
 double? Fibonacci(int n)
 {
-   if(n == 0) return null;
- if(n == 1 || n == 2) return 1;
- else return Fibonacci(n-1) + Fibonacci(n-2);
+    if (n == 0)
+        return null;
+    if (n == 1 || n == 2)
+        return 1;
+    else
+        return Fibonacci(n - 1) + Fibonacci(n - 2);
 }
 
+DateTime time = DateTime.Now;
 
-for (int i = 0; i < 15; i++)
+for (int i = 0; i < 100; i++)
 {
-  Console.WriteLine(Fibonacci(i));
+    Console.WriteLine($"{i}: {Fibonacci(i)}: {(DateTime.Now - time).TotalMilliseconds}");
+    time = DateTime.Now;
 }
-
-
-
-
-
