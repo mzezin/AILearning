@@ -70,80 +70,32 @@ public class Cell
     Cell(int sector, int position, int value){
       switch (sector, position)
       {
-        case (0,0): {x=0; y=0;}
-        case (0,1): {x=0; y=0;}
-        case (0,2): {x=0; y=0;}
-        case (0,3): {x=0; y=0;}
-        case (0,4): {x=0; y=0;}
-        case (0,5): {x=0; y=0;}
-        case (0,6): {x=0; y=0;}
-        case (0,7): {x=0; y=0;}
-        case (0,8): {x=0; y=0;}
-
-        case (1,0): {x=0; y=0;}
-        case (1,1): {x=0; y=0;}
-        case (1,2): {x=0; y=0;}
-        case (1,3): {x=0; y=0;}
-        case (1,4): {x=0; y=0;}
-        case (1,5): {x=0; y=0;}
-        case (1,6): {x=0; y=0;}
-        case (1,7): {x=0; y=0;}
-        case (1,8): {x=0; y=0;}
-
-        case (2,0): {x=0; y=0;}
-        case (2,1): {x=0; y=0;}
-        case (2,2): {x=0; y=0;}
-        case (2,3): {x=0; y=0;}
-        case (2,4): {x=0; y=0;}
-        case (2,5): {x=0; y=0;}
-        case (2,6): {x=0; y=0;}
-        case (2,7): {x=0; y=0;}
-        case (12,8): {x=0; y=0;}
-
-        case (0,0): {x=0; y=0;}
-        case (0,1): {x=0; y=0;}
-        case (0,2): {x=0; y=0;}
-        case (0,3): {x=0; y=0;}
-        case (0,4): {x=0; y=0;}
-        case (0,5): {x=0; y=0;}
-        case (0,6): {x=0; y=0;}
-        case (0,7): {x=0; y=0;}
-        case (0,8): {x=0; y=0;}
-
-        case (0,0): {x=0; y=0;}
-        case (0,1): {x=0; y=0;}
-        case (0,2): {x=0; y=0;}
-        case (0,3): {x=0; y=0;}
-        case (0,4): {x=0; y=0;}
-        case (0,5): {x=0; y=0;}
-        case (0,6): {x=0; y=0;}
-        case (0,7): {x=0; y=0;}
-        case (0,8): {x=0; y=0;}
-
-        case (0,0): {x=0; y=0;}
-        case (0,1): {x=0; y=0;}
-        case (0,2): {x=0; y=0;}
-        case (0,3): {x=0; y=0;}
-        case (0,4): {x=0; y=0;}
-        case (0,5): {x=0; y=0;}
-        case (0,6): {x=0; y=0;}
-        case (0,7): {x=0; y=0;}
-        case (0,8): {x=0; y=0;}
-
-        case (0,0): {x=0; y=0;}
-        case (0,1): {x=0; y=0;}
-        case (0,2): {x=0; y=0;}
-        case (0,3): {x=0; y=0;}
-        case (0,4): {x=0; y=0;}
-        case (0,5): {x=0; y=0;}
-        case (0,6): {x=0; y=0;}
-        case (0,7): {x=0; y=0;}
-        case (0,8): {x=0; y=0;}
-
-
-
-
-        default:
+        case (0,0): {x=0; y=0;}; break;
+        case (0,1): {x=0; y=0;}; break;
+        case (0,2): {x=0; y=0;}; break;
+        case (0,3): {x=0; y=0;}; break;
+        case (0,4): {x=0; y=0;}; break;
+        case (0,5): {x=0; y=0;}; break;
+        case (0,6): {x=0; y=0;}; break;
+        case (0,7): {x=0; y=0;}; break;
+        case (0,8): {x=0; y=0;}; break;
+        case (1,0): {x=0; y=0;}; break;
+        case (1,1): {x=0; y=0;}; break;
+        case (1,2): {x=0; y=0;}; break;
+        case (1,3): {x=0; y=0;}; break;
+        case (1,4): {x=0; y=0;}; break;
+        case (1,5): {x=0; y=0;}; break;
+        case (1,6): {x=0; y=0;}; break;
+        case (1,7): {x=0; y=0;}; break;
+        case (1,8): {x=0; y=0;}; break;
+        case (2,0): {x=0; y=0;}; break;
+        case (2,1): {x=0; y=0;}; break;
+        case (2,2): {x=0; y=0;}; break;
+        case (2,3): {x=0; y=0;}; break;
+        case (2,4): {x=0; y=0;}; break;
+        case (2,5): {x=0; y=0;}; break;
+        case (2,6): {x=0; y=0;}; break;
+        case (2,7): {x=0; y=0;}; break;
       }
     }
 }
