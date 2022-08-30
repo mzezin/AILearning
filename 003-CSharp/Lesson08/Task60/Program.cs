@@ -69,7 +69,7 @@ void print3dArray(int[,,] array)
         {
             for (int k = 0; k < array.GetLength(2); k++)
             {
-                Console.Write(printElement(array[j, k, i], j, k, i)); //вопрос по порядку индексов, но сделал как в примере
+                Console.Write(printElement(array[i, j, j], i, j, k)); //вопрос по порядку индексов, но сделал как в примере
             }
             Console.WriteLine();
         }

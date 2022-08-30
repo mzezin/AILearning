@@ -73,7 +73,7 @@ Console.WriteLine(prettyPrint2dArray(sortInRows(testArray)));
 
 Console.WriteLine("==============================");
 
-Console.WriteLine("Тестовые данные: ");
+Console.WriteLine("Случайные данные: ");
 Console.WriteLine(prettyPrint2dArray(randomArray));
 
 Console.WriteLine("Строки отсортированы: ");
