@@ -1,101 +1,201 @@
-﻿int[,,] sudoku = new int[9, 9, 9];
+﻿Sudoku sudoku = new Sudoku();
+sudoku.Print();
 
-void populateWithZeroes(int[,,] array)
+// sudoku.Print();
+
+class Sudoku
 {
-    for (int i = 0; i < array.GetLength(0); i++)
+    int[,] Data;
+
+    Coords CurrentCoords;
+    int CurrentCellIndex;
+    List<HistoryItem> History;
+
+    public Sudoku()
     {
-        for (int j = 0; j < array.GetLength(1); j++)
+        Data = new int[9, 9];
+        History = new List<HistoryItem> { };
+        for (CurrentCellIndex = 0; CurrentCellIndex < 81; CurrentCellIndex++)
         {
-            for (int k = 0; k < array.GetLength(2); k++)
+            CurrentCoords = GetCoordsAtIndex(CurrentCellIndex);
+            int value = RandomFill(CurrentCoords);
+            if (value != 0)
+                SaveHistory();
+            else
+                RollBack();
+        }
+        // for (int i = 0; i < 9; i++)
+        // {
+        //     for (int j = 0; j < 9; j++)
+        //     {
+        //         CurrentCoords = new Coords(j, i);
+        //         int value = RandomFill(j, i);
+        //         if (value != 0)
+        //             SaveHistory();
+        //         else
+        //         {
+        //             RollBack();
+        //             if (j == 0)
+        //             {
+        //                 j = 8;
+        //                 i--;
+        //             }
+        //             else
+        //                 j--;
+        //         }
+        //     }
+        // }
+    }
+
+    public void Print()
+    {
+        string result = "";
+        for (int i = 0; i < Data.GetLength(0); i++)
+        {
+            for (int j = 0; j < Data.GetLength(1); j++)
             {
-                array[i, j, k] = 0;
+                result += Data[i, j] + " ";
+            }
+            result += "\n";
+        }
+        Console.WriteLine(result);
+    }
+
+    public void PrintHistory(int index = 0)
+    {
+        if (History.Count <= 0)
+        {
+            Console.WriteLine("No data");
+            return;
+        }
+        HistoryItem historyItem = History.ElementAt(index);
+
+        string result = "";
+        for (int i = 0; i < historyItem.Data.GetLength(0); i++)
+        {
+            for (int j = 0; j < historyItem.Data.GetLength(1); j++)
+            {
+                result += historyItem.Data[i, j] + " ";
+            }
+            result += "\n";
+        }
+        Console.WriteLine(result);
+    }
+
+    void SaveHistory()
+    {
+        HistoryItem historyItem = new HistoryItem(Data, CurrentCoords);
+        History.Insert(0, historyItem);
+    }
+
+    public void RollBack()
+    {
+        if (History.Count > 0)
+        {
+            Data = History.ElementAt(0).Data;
+            History.RemoveAt(0);
+        }
+    }
+
+    int[] CalculatePossibleValues(int x, int y)
+    {
+        List<int> result = new List<int> { };
+        for (int i = 1; i <= 9; i++)
+        {
+            if (CheckPossibility(x, y, i))
+                result.Add(i);
+        }
+        return result.ToArray();
+    }
+
+    bool CheckRow(int y, int value)
+    {
+        for (int i = 0; i < 9; i++)
+        {
+            if (value == Data[y, i])
+                return false;
+        }
+        return true;
+    }
+
+    bool CheckColumn(int x, int value)
+    {
+        for (int i = 0; i < 9; i++)
+        {
+            if (value == Data[i, x])
+                return false;
+        }
+        return true;
+    }
+
+    bool CheckSector(int x, int y, int value)
+    {
+        //TODO
+        return true;
+    }
+
+    bool CheckPossibility(int x, int y, int value)
+    {
+        return CheckSector(x, y, value) && CheckColumn(x, value) && CheckRow(y, value);
+    }
+
+    int RandomNumber(int[] possibleValues)
+    {
+        if (possibleValues.Length == 0)
+            return 0;
+        return possibleValues[new Random().Next(0, possibleValues.Length)];
+    }
+
+    int RandomNumber()
+    {
+        return new Random().Next(1, 10);
+    }
+
+    public int RandomFill(Coords coords)
+    {
+        int x = coords.X;
+        int y = coords.Y;
+        int value = RandomNumber(CalculatePossibleValues(x, y));
+        Data[y, x] = value;
+        return value;
+    }
+
+    Coords GetCoordsAtIndex(int index)
+    {
+        int counter = 0;
+        for (int i = 0; i < 9; i++)
+        {
+            for (int j = 0; j < 9; j++)
+            {
+                if (counter == index)
+                    return new Coords(j, i);
+                counter++;
             }
         }
+        return new Coords(-1, -1);
     }
 }
 
-void printArray(int[,,] array)
+struct Coords
 {
-    for (int i = 0; i < array.GetLength(0); i++)
+    public int X;
+    public int Y;
+
+    public Coords(int x, int y)
     {
-        for (int j = 0; j < array.GetLength(1); j++)
-        {
-            string output1 = String.Format(
-                "|{0,3}|{1,3}|{2,3}|",
-                array[i, j, 0],
-                array[i, j, 1],
-                array[i, j, 2]
-            );
-            string output2 = String.Format(
-                "|{0,3}|{1,3}|{2,3}|",
-                array[i, j, 3],
-                array[i, j, 4],
-                array[i, j, 5]
-            );
-            string output3 = String.Format(
-                "|{0,3}|{1,3}|{2,3}|",
-                array[i, j, 6],
-                array[i, j, 7],
-                array[i, j, 8]
-            );
-            Console.WriteLine("------------------------");
-            Console.WriteLine(output1);
-            Console.WriteLine("------------------------");
-            Console.WriteLine(output2);
-            Console.WriteLine("------------------------");
-            Console.WriteLine(output3);
-            Console.WriteLine("------------------------");
-        }
+        X = x;
+        Y = y;
     }
 }
 
-populateWithZeroes(sudoku);
-printArray(sudoku);
-
-
-// Sectors indexes
-//  -----
-// |0|1|2|
-// |3|4|5|
-// |6|7|8|
-//  -----
-
-
-public class Cell
+struct HistoryItem
 {
-    public int x { get; set; }
-    public int y { get; set; }
-    public int value { get; set; }
+    public Coords Coords;
+    public int[,] Data;
 
-    Cell(int sector, int position, int value){
-      switch (sector, position)
-      {
-        case (0,0): {x=0; y=0;}; break;
-        case (0,1): {x=0; y=0;}; break;
-        case (0,2): {x=0; y=0;}; break;
-        case (0,3): {x=0; y=0;}; break;
-        case (0,4): {x=0; y=0;}; break;
-        case (0,5): {x=0; y=0;}; break;
-        case (0,6): {x=0; y=0;}; break;
-        case (0,7): {x=0; y=0;}; break;
-        case (0,8): {x=0; y=0;}; break;
-        case (1,0): {x=0; y=0;}; break;
-        case (1,1): {x=0; y=0;}; break;
-        case (1,2): {x=0; y=0;}; break;
-        case (1,3): {x=0; y=0;}; break;
-        case (1,4): {x=0; y=0;}; break;
-        case (1,5): {x=0; y=0;}; break;
-        case (1,6): {x=0; y=0;}; break;
-        case (1,7): {x=0; y=0;}; break;
-        case (1,8): {x=0; y=0;}; break;
-        case (2,0): {x=0; y=0;}; break;
-        case (2,1): {x=0; y=0;}; break;
-        case (2,2): {x=0; y=0;}; break;
-        case (2,3): {x=0; y=0;}; break;
-        case (2,4): {x=0; y=0;}; break;
-        case (2,5): {x=0; y=0;}; break;
-        case (2,6): {x=0; y=0;}; break;
-        case (2,7): {x=0; y=0;}; break;
-      }
+    public HistoryItem(int[,] data, Coords coords)
+    {
+        Coords = coords;
+        Data = (int[,])data.Clone();
     }
 }
