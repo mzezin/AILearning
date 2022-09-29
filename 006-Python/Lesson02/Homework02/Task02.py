@@ -18,7 +18,7 @@ def generate_production_list(n):
     result = []
     buffer = 1
     for i in range(n):
-        buffer = (i+1) * buffer
+        buffer *= i+1
         result.append(buffer)
     return result
 

@@ -23,6 +23,6 @@ n = input_int("Введите целое число: ")
 number_list = generate_list(n)
 
 
-print(f"Для n = 6: {number_list} -> {sum(number_list)}")
+print(f"Для n = {n}: {number_list} -> {sum(number_list)}")
 
 # print(generate_list(6))

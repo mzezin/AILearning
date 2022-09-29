@@ -15,6 +15,18 @@ def find_quarter(x, y):
             return 3
     return None
 
+# def find_quarter(x, y):
+#     if x == 0 or y == 0:
+#         return None
+#     if x > 0:
+#         if y > 0:
+#             return 1
+#         return 4
+#     if x < 0:
+#         if y > 0:
+#             return 2
+#         return 3
+
 
 x = int(input("Введите координату X: "))
 y = int(input("Введите координату Y: "))
