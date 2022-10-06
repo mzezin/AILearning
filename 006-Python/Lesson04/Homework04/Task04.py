@@ -26,23 +26,22 @@ def generate_polynomial(k):
         result[i] = random.randint(0, 100)
     return result
 
-def generate_poly_element(x, n, superscript_mode=False):
-    if n == 0:
-        return str(x)
-    if n == 1:
-        return str(x)+"*x"
-    superscript = ["⁰", "¹", "²", "³", "⁴", "⁵", "⁶", "⁷", "⁸", "⁹"]
-    result = str(x)
-    if x != 0:
-        result += "*x"
-    if superscript_mode:
-        for i in str(n):
-            result += superscript[int(i)]
-    else:
-        result += "^"+str(n)
-    return result
-  
 def print_polynomial(poly, superscript_mode=False):
+    def generate_poly_element(x, n, superscript_mode=False):
+        if n == 0:
+            return str(x)
+        if n == 1:
+            return str(x)+"*x"
+        superscript = ["⁰", "¹", "²", "³", "⁴", "⁵", "⁶", "⁷", "⁸", "⁹"]
+        result = str(x)
+        if x != 0:
+            result += "*x"
+        if superscript_mode:
+            for i in str(n):
+                result += superscript[int(i)]
+        else:
+            result += "^"+str(n)
+        return result
     result = []
     for k in poly:
         if poly[k] != 0:
