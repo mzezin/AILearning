@@ -4,8 +4,13 @@ empty_field = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
 
 
 def print_field(field):
-    for row in field:
-        print("|".join(row))
+    print("┌───┬───┬───┐")
+    print("│ "+" │ ".join(field[0])+" │")
+    print("├───┼───┼───┤")
+    print("│ "+" │ ".join(field[1])+" │")
+    print("├───┼───┼───┤")
+    print("│ "+" │ ".join(field[2])+" │")
+    print("└───┴───┴───┘")
 
 
 def make_move(field, move, symbol):
