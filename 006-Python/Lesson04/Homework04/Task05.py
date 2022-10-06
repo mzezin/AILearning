@@ -8,11 +8,11 @@ def print_polynomial(poly, superscript_mode=False):
         if n == 0:
             return str(x)
         if n == 1:
-            return str(x)+"x"
+            return str(x)+"*x"
         superscript = ["⁰", "¹", "²", "³", "⁴", "⁵", "⁶", "⁷", "⁸", "⁹"]
         result = str(x)
         if x != 0:
-            result += "x"
+            result += "*x"
         if superscript_mode:
             for i in str(n):
                 result += superscript[int(i)]
@@ -30,11 +30,11 @@ def print_polynomial(poly, superscript_mode=False):
 
 def validate_poly(poly_string):
     def poly_iterator(element):
-        result = element.split("x^")
+        result = element.split("*x^")
         if len(result) != 1:
             return [int(result[0]), int(result[1])]
         if result[0][-1] == "x":
-            return [int(result[0][:-1]), 1]
+            return [int(result[0][:-2]), 1]
         return [int(result[0]), 0]
     poly = poly_string.split("+")
     result = list(map(poly_iterator, poly))

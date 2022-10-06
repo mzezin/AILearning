@@ -30,11 +30,11 @@ def generate_poly_element(x, n, superscript_mode=False):
     if n == 0:
         return str(x)
     if n == 1:
-        return str(x)+"x"
+        return str(x)+"*x"
     superscript = ["⁰", "¹", "²", "³", "⁴", "⁵", "⁶", "⁷", "⁸", "⁹"]
     result = str(x)
     if x != 0:
-        result += "x"
+        result += "*x"
     if superscript_mode:
         for i in str(n):
             result += superscript[int(i)]
@@ -53,5 +53,5 @@ def print_polynomial(poly, superscript_mode=False):
 k = input_int("Введите степень: ")
 polynomial = generate_polynomial(k)
 print(print_polynomial(polynomial))
-with open("poly2.txt", "w") as file:
+with open("poly1.txt", "w") as file:
     file.write(print_polynomial(polynomial))
