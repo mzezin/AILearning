@@ -16,7 +16,7 @@ def input_int(msg=""):
 
 def input_int_list():
     count = input_int("Введите количество элементов списка: ")
-    result = list()
+    result = []
     for i in range(count):
         result.append(input_int(f"Введите целое число №{i+1}: "))
     return result
@@ -25,7 +25,7 @@ def input_int_list():
 def sum_of_odd(number_list):
     result = 0
     for i in range(len(number_list)):
-        if i % 2 == 1:
+        if i % 2:
             result += number_list[i]
     return result
 

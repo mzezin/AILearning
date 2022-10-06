@@ -22,13 +22,14 @@ def input_int_list():
         result.append(input_int(f"Введите целое число №{i+1}: "))
     return result
 
+
 def pair_production(input_list):
     length = len(input_list)
     target_length = length//2
-    result = list()
+    result = []
     for i in range(target_length):
-        result.append(input_list[i] * input_list[length - i - 1])
-    if target_length * 2 != length:
+        result.append(input_list[i] * input_list[- i - 1])
+    if length % 2 != 0:
         result.append(input_list[target_length]**2)
     return result
 
