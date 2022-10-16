@@ -4,20 +4,21 @@ empty_field = [[" ", " ", " "], [" ", " ", " "], [" ", " ", " "]]
 
 
 def print_field(field):
-    print("┌───┬───┬───┐")
-    print("│ "+" │ ".join(field[0])+" │")
-    print("├───┼───┼───┤")
-    print("│ "+" │ ".join(field[1])+" │")
-    print("├───┼───┼───┤")
-    print("│ "+" │ ".join(field[2])+" │")
-    print("└───┴───┴───┘")
+    print("    0   1   2   ")
+    print("  ┌───┬───┬───┐")
+    print("0 │ "+" │ ".join(field[0])+" │")
+    print("  ├───┼───┼───┤")
+    print("1 │ "+" │ ".join(field[1])+" │")
+    print("  ├───┼───┼───┤")
+    print("2 │ "+" │ ".join(field[2])+" │")
+    print("  └───┴───┴───┘")
 
 
 def make_move(field, move, symbol):
     result = field.copy()
     move = move.split()
     [x, y] = list(map(int, move))
-    if (3 > x >= 0) and result[y][x] == " ":
+    if (3 > x >= 0) and (3 > y >= 0) and result[y][x] == " ":
         result[y][x] = symbol
     else:
         new_attempt = input("Неправильный ход, повторите ввод: ")
@@ -54,6 +55,7 @@ field = empty_field
 moves_count = 0
 is_X_move = True
 print("Добро пожаловать в игру X-0. В свой ход вводите координаты, разделенные пробелом.")
+print_field(field)
 while check_win(field) == None and moves_count < 9:
     current_player = "X" if is_X_move else "0"
     field = make_move(field, input(
