@@ -1,0 +1,57 @@
+{
+    "groups": [
+        {
+            "id": "30942b0c-27f1-4ac6-a505-2f9bcd1bcd67",
+            "name": "2A"
+        },
+        {
+            "id": "b59ffae6-a065-4923-a50e-59fa8ef1bbf0",
+            "name": "3A"
+        },
+        {
+            "id": "0963c771-ed42-4e62-a5b3-70fc8d4ce180",
+            "name": "4A"
+        },
+        {
+            "id": "4adfd8b7-1f50-4f2c-9f62-b66fe9c51d41",
+            "name": "8A"
+        },
+        {
+            "id": "8dfaef6c-1161-4845-ab90-1297c2513885",
+            "name": "5B"
+        }
+    ],
+    "students": [
+        {
+            "id": "5354c991-4f54-4033-a8d1-b091ce665014",
+            "FIO": "Иванов Иван Иванович",
+            "group_id": "30942b0c-27f1-4ac6-a505-2f9bcd1bcd67"
+        },
+        {
+            "id": "e973a18e-cb75-411d-bf24-14ebf24bccfa",
+            "FIO": "Петров Петр Петрович",
+            "group_id": "30942b0c-27f1-4ac6-a505-2f9bcd1bcd67"
+        },
+        {
+            "id": "9a105798-ab03-43d5-a5ac-c846b27f438a",
+            "FIO": "Магомед Магомед Магомедович",
+            "group_id": "8dfaef6c-1161-4845-ab90-1297c2513885"
+        }
+    ],
+    "lessons": [
+        {
+            "id": "c1100d1b-a28e-4295-85b1-1f8390b509c8",
+            "name": "Математика",
+            "start_time": "09:00",
+            "end_time": "09:45",
+            "group_id": "30942b0c-27f1-4ac6-a505-2f9bcd1bcd67"
+        },
+        {
+            "id": "1c6393a0-e722-4003-9eee-3cbe76a8d434",
+            "name": "ОБЖ",
+            "start_time": "11:00",
+            "end_time": "11:45",
+            "group_id": "30942b0c-27f1-4ac6-a505-2f9bcd1bcd67"
+        }
+    ]
+}
