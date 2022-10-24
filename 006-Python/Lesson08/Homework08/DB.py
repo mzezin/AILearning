@@ -6,8 +6,8 @@ from StorageClasses import GroupDB, StudentDB, LessonDB
 from RecordClasses import Group, Student, Lesson
 
 
-class DB():
-    def __init__(self, file_name = ''):
+class DB:
+    def __init__(self, file_name=''):
         if file_name == '':
             self.groups = GroupDB()
             self.students = StudentDB()
@@ -55,10 +55,11 @@ class DB():
 
                 lessons = LessonDB()
                 for lesson in loaded_state["lessons"]:
-                    lessons.add(Lesson(lesson["name"], lesson["group_id"], lesson["start_time"], lesson["end_time"], lesson["id"]
+                    lessons.add(Lesson(lesson["name"], lesson["group_id"], lesson["start_time"], lesson["end_time"],
+                                       lesson["id"]
                                        ))
                 self.lessons = lessons
                 print("БД загружена")
-                
+
         except:
             print("Ошибка открытия файла, проверьте формат")

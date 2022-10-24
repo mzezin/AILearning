@@ -30,7 +30,7 @@ class BaseStorage():
     def find(self, field: str, value: str):
         try:
             result = list(filter(lambda e: e.__dict__[
-                          field] == value, self.state))
+                                               field] == value, self.state))
             if len(result) == 0:
                 print("Ошибка поиска")
                 return None
@@ -42,7 +42,7 @@ class BaseStorage():
     def find_all(self, field: str, value: str):
         try:
             result = list(filter(lambda e: e.__dict__[
-                          field].lower() == value.lower(), self.state))
+                                               field].lower() == value.lower(), self.state))
             if len(result) == 0:
                 print("Ошибка поиска")
                 return None
@@ -71,10 +71,10 @@ class GroupDB(BaseStorage):
         if state == None:
             state = self.state
         result = [f"{'id':<37}│{'Название группы'}"]
-        result += [f"{'─'*115}"]
+        result += [f"{'─' * 115}"]
         result += list(
             map(lambda record: f"{record.id:<37}│{record.name}", state))
-        result += [f"{'─'*115}"]
+        result += [f"{'─' * 115}"]
         result += [""]
         for row in result:
             print(row)
@@ -88,10 +88,10 @@ class StudentDB(BaseStorage):
         if state == None:
             state = self.state
         result = [f"{'id':<37}│{'ФИО':<40}│{'id группы'}"]
-        result += [f"{'─'*115}"]
+        result += [f"{'─' * 115}"]
         result += list(
             map(lambda record: f"{record.id:<37}│{record.FIO:<40}│{record.group_id}", state))
-        result += [f"{'─'*115}"]
+        result += [f"{'─' * 115}"]
         result += [""]
         for row in result:
             print(row)
@@ -106,10 +106,12 @@ class LessonDB(BaseStorage):
             state = self.state
         result = [
             f"{'id':<37}│{'Урок':<20}│{'Начало':<7}│{'Конец':<7}│{'id группы'}"]
-        result += [f"{'─'*115}"]
+        result += [f"{'─' * 115}"]
         result += list(
-            map(lambda record: f"{record.id:<37}│{record.name:<20}│{record.start_time:<7}│{record.end_time:<7}│{record.group_id}", state))
-        result += [f"{'─'*115}"]
+            map(lambda
+                    record: f"{record.id:<37}│{record.name:<20}│{record.start_time:<7}│{record.end_time:<7}│{record.group_id}",
+                state))
+        result += [f"{'─' * 115}"]
         result += [""]
         for row in result:
             print(row)

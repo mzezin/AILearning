@@ -1,4 +1,3 @@
-
 import os
 from RecordClasses import Group, Lesson, Student
 from DB import DB
@@ -20,7 +19,7 @@ def input_int(msg=""):
 
 def main_menu(db: DB):
     print("Главное меню")
-    print("="*100)
+    print("=" * 100)
     print("1 - Группы")
     print("2 - Студенты")
     print("3 - Предметы")
@@ -47,7 +46,7 @@ def main_menu(db: DB):
 
 def groups_menu(db: DB):
     print("Меню управления группами")
-    print("="*100)
+    print("=" * 100)
     print("1 - Просмотр всех групп")
     print("2 - Добавление группы")
     print("3 - Удаление группы")
@@ -76,7 +75,7 @@ def groups_menu(db: DB):
 
 def students_menu(db: DB):
     print("Меню управления студентами")
-    print("="*100)
+    print("=" * 100)
     print("1 - Просмотр всех студентов")
     print("2 - Добавление студента")
     print("3 - Удаление студента")
@@ -108,7 +107,7 @@ def students_menu(db: DB):
 
 def lessons_menu(db: DB):
     print("Меню управления предметами")
-    print("="*100)
+    print("=" * 100)
     print("1 - Просмотр всех предметов")
     print("2 - Добавление предмета")
     print("3 - Удаление предмета")
@@ -140,7 +139,7 @@ def lessons_menu(db: DB):
 
 def search_menu(db: DB):
     print("Меню поисковых запросов: ")
-    print("="*100)
+    print("=" * 100)
     print("1 - Список студентов по группе")
     print("2 - Список предметов по группе")
     print("3 - Список студентов по предмету")
@@ -181,7 +180,6 @@ def search_menu(db: DB):
 
 
 def test_run(db: DB):
-
     db.groups.add(Group("2A"))
     db.groups.add(Group("3A"))
     db.groups.add(Group("4A"))
