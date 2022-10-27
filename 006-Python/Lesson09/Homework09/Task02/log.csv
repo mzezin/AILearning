@@ -1,0 +1,11 @@
+console, localUser ,23, 23, +
+console, localUser ,3, 44, *
+console, localUser ,100.0, 23.0, /
+console, localUser, (23+200j), (16+0.0002j), -
+console, localUser, 12.0, 232.0, +
+console, localUser, (23+0.02j), (23+2e+44j), +
+console, localUser, 2.0, 44.0, -
+console, localUser, (12+200j), (34+20000j), *
+console, localUser, (23+200j), (23+2e+45j), -
+Telegram bot, mzezin, 123.0, 323.0, +
+Telegram bot, mzezin, (23+200j), (12+0.0003j), +
